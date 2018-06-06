@@ -1,4 +1,4 @@
-function onVersionChange(form, animation) {
+﻿function onVersionChange(form, animation) {
     if (typeof version_prefixes == 'undefined' || typeof fields_per_version == 'undefined'
         || !version_prefixes || !fields_per_version) {
         return;
@@ -17,8 +17,22 @@ function onVersionChange(form, animation) {
         });
     });
 }
+
 function loadVersions() {
     let form = $('[data-form-name$="_event"]');
     onVersionChange(form);
     form.find('#id_c_versions').change(function () { onVersionChange(form, 'slow') });
+}
+
+function loadSongs() {
+    let form = $('[data-form-name$="_song"]');
+    $.each(version_prefixes, function(version, prefix) {
+        print version;
+	print prefix;
+        if (prefix == 'kr' || prefix == 'tw'){
+	let input = form.find('#id_c_versions [value="' + version + '"]');
+	let field = input.closest('.form-group');
+        field.hide('slow');
+        input.val('');
+	}}
 }
