@@ -24,19 +24,19 @@ function loadVersions() {
     form.find('#id_c_versions').change(function () { onVersionChange(form, 'slow') });
 }
 
+function hideExtraVersions(form) {
+    $.each(version_prefixes, function(version, prefix) {
+        if (prefix == 'kr_' || prefix == 'tw_'){
+	    let input = form.find('#id_c_versions [value="' + version + '"]');
+	    let field = input.closest('label');
+            field.hide('slow');
+            input.val('');
+    }
+    });
+}
+
 function loadSongs() {
     let form = $('[data-form-name$="_song"]');
     console.log(form);
-    $.each(version_prefixes, function(version, prefix) {
-    console.log(version);
-    console.log(prefix);
-    if (prefix == 'kr_' || prefix == 'tw_'){
-	let input = form.find('#id_c_versions [value="' + version + '"]');
-	let field = input.closest('label');
-    console.log(input);
-    console.log(field);
-        field.hide('slow');
-        input.val('');
-    }
-    });
+    hideExtraVersions(form);
 }
