@@ -26,13 +26,17 @@ function loadVersions() {
 
 function loadSongs() {
     let form = $('[data-form-name$="_song"]');
+    console.log(form);
     $.each(version_prefixes, function(version, prefix) {
-        print version;
-	print prefix;
-        if (prefix == 'kr' || prefix == 'tw'){
+    console.log(version);
+    console.log(prefix);
+    if (prefix == 'kr_' || prefix == 'tw_'){
 	let input = form.find('#id_c_versions [value="' + version + '"]');
-	let field = input.closest('.form-group');
+	let field = input.closest('label');
+    console.log(input);
+    console.log(field);
         field.hide('slow');
         input.val('');
-	}}
+    }
+    });
 }
