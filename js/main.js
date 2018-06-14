@@ -36,8 +36,6 @@ function hideExtraVersions(form) {
 }
 
 function onLocationChange(form){
-//firstly, check hits, daily, b-sides. If hits or b-side, hide daily. If daily, hide b-sides and hits.
-//then, go through again and hide/show based off of each attribute
         let checkbox_h=form.find('#id_c_locations [value="hits"]');
         let checkbox_d=form.find('#id_c_locations [value="daily"]');
         let checkbox_b=form.find('#id_c_locations [value="bside"]');
