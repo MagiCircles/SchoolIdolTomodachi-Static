@@ -35,8 +35,40 @@ function hideExtraVersions(form) {
     });
 }
 
+function onLocationChange(form){
+//firstly, check hits, daily, b-sides. If hits or b-side, hide daily. If daily, hide b-sides and hits.
+//then, go through again and hide/show based off of each attribute
+        let checkbox_h=form.find('#id_c_locations [value="hits"]');
+        let checkbox_d=form.find('#id_c_locations [value="daily"]');
+        let checkbox_b=form.find('#id_c_locations [value="bsides"]');
+        if(checkbox_h.prop('checked') || checkbox_b.prop('checked')){
+            let field_d_e = form.find('#id_daily')
+            let field_d = form.find('#id_c_locations_1');
+            let input_d_e = field_d_e.closest('.form-group');
+            let input_d = field_d.closest('label');
+            input_d_e.hide('slow');
+            input_d.hide('slow');
+            field_d_e.val('');
+            field_d.val('');
+            
+        if(location == 'daily'){
+            let field = form.find('#id_daily')
+            let input = input.closest('.form-group');
+            if(checkbox.prop('checked')){
+                field.show('slow');
+            }
+            else{
+                field.hide('slow');
+                input.val('');
+            }
+        }
+    }
+}
+
 function loadSongs() {
     let form = $('[data-form-name$="_song"]');
     console.log(form);
     hideExtraVersions(form);
+    onLocationChange(form);
+    form.find('#id_c_locations').change(function () { onLocationChange(form)});
 }
