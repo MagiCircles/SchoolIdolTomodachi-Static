@@ -41,50 +41,26 @@ function onLocationChange(form){
         let checkbox_h=form.find('#id_c_locations [value="hits"]');
         let checkbox_d=form.find('#id_c_locations [value="daily"]');
         let checkbox_b=form.find('#id_c_locations [value="bside"]');
-            let field_h_e = form.find('#id_unlock');
-            let field_d_e = form.find('#id_daily');
-            let field_b_e1 = form.find('#id_b_side_master');
-            let field_b_e2 = form.find('#id_b_side_start');
-            let field_b_e3 = form.find('#id_b_side_end');
-            let field_h = form.find('#id_c_locations_0');
-            let field_d = form.find('#id_c_locations_1');
-            let_field_b = form.find('#id_c_locations_2');
-            let input_h_e = field_h_e.closest('.form-group');
-            let input_d_e = field_d_e.closest('.form-group');
-            let input_b_e1 = field_b_e1.closest('label');
-            let input_b_e2 = field_b_e2.closest('.form-group');
-            let input_b_e3 = field_b_e3.closest('.form-group');
-            let input_d = field_d.closest('label');
-            let input_b = field_d.closest('label');
-            let input_h = field_d.closest('label');
-        if(checkbox_h.prop('checked') || checkbox_b.prop('checked')){
-            input_d_e.hide('slow');
-            input_d.hide('slow');
-            field_d_e.val('');
-         }
-         else{
-            input_d_e.show('slow');
-            input_d.show('slow');
+
+        form.find('#id_unlock').closest('.form-group').hide('fast');
+        form.find('#id_daily').closest('.form-group').hide('fast');
+        form.find('#id_b_side_master').closest('label').hide('fast');
+        form.find('#id_b_side_start').closest('.form-group').hide('fast');
+        form.find('#id_b_side_end').closest('.form-group').hide('fast');
+
+        if(checkbox_h.prop('checked')){
+        form.find('#id_unlock').closest('.form-group').show('fast');
         }
         if(checkbox_d.prop('checked')){
-            input_h_e.hide('slow');
-            input_b_e1.hide('slow');
-	    input_b_e2.hide('slow');
-	    input_b_e3.hide('slow');
-            input_b.hide('slow');
-            input_h.hide('slow');
-            field_h_e.val('');
-            field_b_e1.val('');
-            field_b_e2.val('');
-            field_b_e3.val('');
+        form.find('#id_daily').closest('.form-group').show('fast');
+        }
+        if(checkbox_b.prop('checked')){
+        form.find('#id_b_side_master').closest('label').show('fast');
+        form.find('#id_b_side_start').closest('.form-group').show('fast');
+        form.find('#id_b_side_end').closest('.form-group').show('fast');
         }
         else{
-            input_h_e.show('slow');
-            input_h.show('slow');
-            input_b_e1.show('slow');
-            input_b_e2.show('slow');
-            input_b_e3.show('slow');
-            input_b.show('slow');
+        form.find('#id_b_side_master').val('');
         }
 }
 
