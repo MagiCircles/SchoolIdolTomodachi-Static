@@ -49,8 +49,14 @@ function onLocationChange(form){
         if(checkbox_h.prop('checked')){
         form.find('#id_unlock').closest('.form-group').show('fast');
         }
+        else{
+        form.find('#id_unlock').val('');
+        }
         if(checkbox_d.prop('checked')){
         form.find('#id_daily').closest('.form-group').show('fast');
+        }
+        else{
+        form.find('#id_daily').val('');
         }
         if(checkbox_b.prop('checked')){
         form.find('#id_b_side_master').closest('label').show('fast');
@@ -59,6 +65,8 @@ function onLocationChange(form){
         }
         else{
         form.find('#id_b_side_master').val('');
+        form.find('#id_b_side_start').val('');
+        form.find('#id_b_side_end').val('');
         }
 }
 
