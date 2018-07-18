@@ -24,17 +24,6 @@ function loadVersions() {
     form.find('#id_c_versions').change(function () { onVersionChange(form, 'slow') });
 }
 
-function hideExtraVersions(form) {
-    $.each(version_prefixes, function(version, prefix) {
-        if (prefix == 'kr_' || prefix == 'tw_'){
-	    let input = form.find('#id_c_versions [value="' + version + '"]');
-	    let field = input.closest('label');
-            field.hide('slow');
-            input.val('');
-    }
-    });
-}
-
 function onLocationChange(form){
         let checkbox_h=form.find('#id_c_locations [value="hits"]');
         let checkbox_d=form.find('#id_c_locations [value="daily"]');
@@ -72,8 +61,6 @@ function onLocationChange(form){
 
 function loadSongs() {
     let form = $('[data-form-name$="_song"]');
-    console.log(form);
-    hideExtraVersions(form);
     onLocationChange(form);
     form.find('#id_c_locations').change(function () { onLocationChange(form)});
 }
