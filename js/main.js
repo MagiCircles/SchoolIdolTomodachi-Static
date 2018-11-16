@@ -25,67 +25,23 @@ function loadVersions() {
 }
 
 function onLocationChange(form){
-        let checkbox_h=form.find('#id_c_locations [value="hits"]');
-        let checkbox_d=form.find('#id_c_locations [value="daily"]');
-        let checkbox_b=form.find('#id_c_locations [value="bside"]');
-
-        form.find('#id_unlock').closest('.form-group').hide('fast');
-        form.find('#id_daily').closest('.form-group').hide('fast');
-        form.find('#id_b_side_master').closest('label').hide('fast');
-        form.find('#id_b_side_start').closest('.form-group').hide('fast');
-        form.find('#id_b_side_end').closest('.form-group').hide('fast');
-
-        if(checkbox_h.prop('checked')){
-        form.find('#id_unlock').closest('.form-group').show('fast');
-        }
-        else{
-        form.find('#id_unlock').val('');
-        }
-        if(checkbox_d.prop('checked')){
-        form.find('#id_daily').closest('.form-group').show('fast');
-        }
-        else{
-        form.find('#id_daily').val('');
-        }
-        if(checkbox_b.prop('checked')){
-        form.find('#id_b_side_master').closest('label').show('fast');
-        form.find('#id_b_side_start').closest('.form-group').show('fast');
-        form.find('#id_b_side_end').closest('.form-group').show('fast');
-        }
-        else{
-        form.find('#id_b_side_master').val('');
-        form.find('#id_b_side_start').val('');
-        form.find('#id_b_side_end').val('');
-        }
+    $.each(locations_related, function(num, related) {
+        let checked = form.find('#id_c_locations [value="' + related[0] + '"]').prop('checked');
+        $.each(related[1], function(_num, _field) {
+            if (checked) {
+                form.find('#id_' + _field).closest('.form-group').show();
+            } else {
+                form.find('#id_' + _field).prop('checked', false);
+                form.find('#id_' + _field).val('');
+                form.find('#id_' + _field).closest('.form-group').hide();
+            }
+        });
+    });
+    console.log('----');
 }
 
 function loadSongs() {
     let form = $('[data-form-name$="_song"]');
     onLocationChange(form);
-    form.find('#id_c_locations').change(function () { onLocationChange(form)});
-}
-
-function loadCard() {
-    $('[data-open-tab]').each(function() {
-	$(this).unbind('click');
-	$(this).click(function(e) {
-	    $('[data-tabs="' + $(this).closest('.btn-group').data('control-tabs') + '"] .tab-pane').removeClass('active');
-	    $('[data-tab="' + $(this).data('open-tab') + '"]').addClass('active');
-	    $(this).blur();
-	});
-    });
-}
-
-function onCenterSkillChangeList(animation) {
-    if (['0', '1', '2'].indexOf($('#sidebar-wrapper #id_i_center').val()) !== -1 ) {
-        $('#sidebar-wrapper #id_i_group').closest('.form-group').show(animation)
-    }
-    else {
-        $('#sidebar-wrapper #id_i_group').closest('.form-group').hide(animation)
-    }
-}
-
-function loadCardList() {
-    onCenterSkillChangeList('slow');
-    $('#sidebar-wrapper #id_i_center').change(function () { onCenterSkillChangeList('slow') });
+    form.find('#id_c_locations').change(function () { onLocationChange(form); })
 }
