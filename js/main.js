@@ -1,4 +1,4 @@
-﻿function onVersionChange(form, animation) {
+function onVersionChange(form, animation) {
     if (typeof version_prefixes == 'undefined' || typeof fields_per_version == 'undefined'
         || !version_prefixes || !fields_per_version) {
         return;
@@ -74,4 +74,18 @@ function loadCard() {
 	    $(this).blur();
 	});
     });
+}
+
+function onCenterSkillChangeList(animation) {
+    if (['0', '1', '2'].indexOf($('#sidebar-wrapper #id_i_center').val()) !== -1 ) {
+        $('#sidebar-wrapper #id_i_group').closest('.form-group').show(animation)
+    }
+    else {
+        $('#sidebar-wrapper #id_i_group').closest('.form-group').hide(animation)
+    }
+}
+
+function loadCardList() {
+    onCenterSkillChangeList('slow');
+    $('#sidebar-wrapper #id_i_center').change(function () { onCenterSkillChangeList('slow') });
 }

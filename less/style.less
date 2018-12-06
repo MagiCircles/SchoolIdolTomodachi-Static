@@ -107,6 +107,30 @@ body {
     }
 }
 
+#id_i_rarity + .cuteform {
+    .cuteform-elt:not([data-cuteform-val=""]) {
+	border-radius: 8px;
+    }
+}
+
+#id_i_unit + .cuteform {
+    .cuteform-elt:not([data-cuteform-val=""]) {
+                    background-color: fade(white, 90%);
+                    border-radius: 15px;
+                    width: 65px;
+                    &.cuteform-selected {
+	    background-color: white;
+	}
+    }
+}
+
+#id_i_subunit + .cuteform {
+    .cuteform-elt:not([data-cuteform-val=""]) {
+                    border-radius: 15px;
+                    width: 65px;
+    }
+}
+
 .song-margin {
    margin-top: 1em;
 }
