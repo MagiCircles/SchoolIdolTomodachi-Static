@@ -12,9 +12,11 @@
 /* Variables */
 
 @mainColor: #e10b80;
-@secondaryColor: #00b0e3;
+/*@secondaryColor: #00b0e3;
+@secondaryColor: #ffe023;*/
 
-@mainColor: grey;
+/*@mainColor: grey;*/
+@secondaryColor: #ff66b0;
 
 @SmileColor: #e6006f;
 @PureColor: #20ab53;
@@ -67,4 +69,94 @@ body {
         font-size: 80px;
         line-height: 100px;
     }
+}
+
+.songwriters-details {
+    display: inline-block;
+    text-align: left;
+}
+
+.idol-small-image {
+    display: inline-block;
+    max-height: 5em !important;
+    max-width: 5em !important;
+}
+
+.card-list {
+    display: inline-block;
+    max-width: 49%;
+    max-height: 49%;
+}
+
+.center-align-div {
+    text-align: center;
+    vertical-align: middle;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#id_i_astrological_sign + .cuteform {
+    .cuteform-elt:not([data-cuteform-val=""]) {
+	background-color: fade(white, 80%);
+	border-radius: 8px;
+	padding: 3px;
+	width: 22px;
+	&.cuteform-selected {
+	    background-color: white;
+	}
+    }
+}
+
+.song-margin {
+   margin-top: 1em;
+}
+
+.top-item img {
+   max-height: 30em;
+}
+
+.under-top {
+    display: inline-block;
+    max-height: 4em !important;
+}
+
+.under-top-row{
+    display: block;
+    margin: .25em;
+    text-align: center;
+    color: #777777;
+}
+
+.card-statistics {
+	padding: 0;
+	padding-top: 20px;
+	.btn-group, .tab-content {
+	    margin: auto;
+	    width: 100%;
+	    max-width: 800px;
+	}
+	.btn-group {
+	    margin-bottom: 20px;
+	}
+	.tab-content {
+	    text-align: left;
+	}
+}
+
+.smile{
+    background-color: @SmileColor
+}
+.pure{
+    background-color: @PureColor
+}
+.cool{
+    background-color: @CoolColor
+}
+.all{
+    background-color: @AllColor
+}
+
+.top-item img{
+bottom: 10px;
+right: 12px;
 }
