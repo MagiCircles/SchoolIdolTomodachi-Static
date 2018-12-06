@@ -12,11 +12,9 @@
 /* Variables */
 
 @mainColor: #e10b80;
-/*@secondaryColor: #00b0e3;
-@secondaryColor: #ffe023;*/
+@secondaryColor: #00b0e3;
 
-/*@mainColor: grey;*/
-@secondaryColor: #ff66b0;
+@mainColor: grey;
 
 @SmileColor: #e6006f;
 @PureColor: #20ab53;
@@ -71,21 +69,11 @@ body {
     }
 }
 
-.songwriters-details {
-    display: inline-block;
-    text-align: left;
-}
-
-.idol-small-image {
-    display: inline-block;
-    max-height: 5em !important;
-    max-width: 5em !important;
-}
-
-.card-list {
-    display: inline-block;
-    max-width: 49%;
-    max-height: 49%;
+[data-field="songwriters"] {
+    ul {
+        display: inline-block;
+        text-align: left;
+    }
 }
 
 .center-align-div {
@@ -107,6 +95,39 @@ body {
     }
 }
 
+#id_i_rarity + .cuteform {
+    .cuteform-elt:not([data-cuteform-val=""]) {
+	border-radius: 8px;
+    }
+}
+
+#id_i_unit + .cuteform {
+    .cuteform-elt:not([data-cuteform-val=""]) {
+                    background-color: fade(white, 90%);
+                    border-radius: 15px;
+                    width: 65px;
+                    &.cuteform-selected {
+	    background-color: white;
+	}
+    }
+}
+
+#id_i_subunit + .cuteform {
+    .cuteform-elt:not([data-cuteform-val=""]) {
+                    border-radius: 15px;
+                    width: 65px;
+    }
+}
+
+[data-field^="b_side"] {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.song-difficulty {
+    margin: 0 -.7em;
+}
+
 .song-margin {
    margin-top: 1em;
 }
@@ -125,35 +146,6 @@ body {
     margin: .25em;
     text-align: center;
     color: #777777;
-}
-
-.card-statistics {
-	padding: 0;
-	padding-top: 20px;
-	.btn-group, .tab-content {
-	    margin: auto;
-	    width: 100%;
-	    max-width: 800px;
-	}
-	.btn-group {
-	    margin-bottom: 20px;
-	}
-	.tab-content {
-	    text-align: left;
-	}
-}
-
-.smile{
-    background-color: @SmileColor
-}
-.pure{
-    background-color: @PureColor
-}
-.cool{
-    background-color: @CoolColor
-}
-.all{
-    background-color: @AllColor
 }
 
 .top-item img{
